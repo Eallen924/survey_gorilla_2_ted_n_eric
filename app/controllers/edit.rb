@@ -1,14 +1,11 @@
-#----------- Edit -----------
 
 get '/user/:user_id' do
-  # render user information
   @user = User.find(params[:user_id])
   erb :user_profile
 end
 
 get '/user/edit/:user_id' do
 	@user = User.find(params[:user_id])
- #render user Edit page
   if current_user.id == @user.id
     erb :edit_profile
   else
@@ -23,12 +20,7 @@ get '/delete_skill/:skill_id' do
 end
 
 post '/add_skill' do
-	# skill_to_add_id = Skill.find_by_name(params[:skill][:name]).id
-	p params
-	current_user.proficiencies.create(params[:skill])#'user_id' => current_user.id,
-										 # 'skill_id' => skill_to_add_id,
-										 # 'years' => params[:skill][:years],
-										 # 'formal' => params[:skill][:formal])
+	current_user.proficiencies.create(params[:skill])
 	redirect "/user/edit/#{current_user.id}"
 end
 
@@ -38,23 +30,8 @@ get '/add_skill' do
 end
 
 post '/update/:user_id' do
-	p params[:user]
-	# if User.authenticate(current_user.email, params[:user][:old_password])
-	# 	# go ahead with edits
- # 	else
-	# 	@errors = current_user.errors.full_messages
-	# end
-
-	# if params[:user][:new_password] == params[:user][:new_password_confirmation]
-	# 	params[:user][:password] = params[:user][:new_password]
-	# else
-	# 	@errors = "New Password Does Not Match"
-	# 	p @errors
-	# 	erb :edit_profile
-	# end
 
 	current_user.update_attributes(params[:user])
-	p current_user.errors.full_messages
 	params[:proficiencies].each do |id, p_params|
 		proficiency_to_update = current_user.proficiencies.find(id)
 		if proficiency_to_update
