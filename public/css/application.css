@@ -119,3 +119,7 @@ form.quirks {
   text-align: left;
   width: 194px;
 }
+
+#errors {
+  color:red;
+}

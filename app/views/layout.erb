@@ -4,8 +4,9 @@
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/application.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+  <script src="/js/user_auth.js"></script>
 
   <title></title>
 </head>
@@ -13,7 +14,7 @@
 
   <nav>
 
-    <div class="brand"><a href="/">Skills</a></div>
+    <div class="brand"><a href="/">Eric \ Ted Survey Monkey</a></div>
     <ul>
       <% if current_user %>
         <li><a id="edit" href="/user/edit/<%= current_user.id %>">Edit</a></li>

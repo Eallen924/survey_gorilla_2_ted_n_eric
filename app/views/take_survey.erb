@@ -1,0 +1,17 @@
+<div class="container">
+  <h1><%= @survey.title %></h1>
+  <div class="questions">
+    <ul>
+      <form action="/responses/<%= @survey.id %>" method="post">
+        <% @survey.questions.each_with_index do |question, qindex|%>
+          <li><%= question.content %></li>
+          <% question.choices.each do |choice|  %>
+            <label><input class="radio" type="radio" name="question[<%= question.id %>]" value="<%=choice.id%>"><%=choice.content%></label><br>
+          <% end %>
+        <% end %>
+        <input type="hidden" value"<%= @user %>">
+        <input type="submit" name="" id="" value="Submit">
+      </form>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+  <form action="/survey/new" method="post">
+    <input type="text" name="survey[title]" placeholder="Survey Title" value="<%= @survey.title %>">
+  <ul>
+      <% @survey.questions.each do |question|%>
+      <li><%= question.content %></li>
+      <ul><% question.choices.each do |choice|  %>
+        <li><%= choice.content %></li>
+        <% end %>
+      </ul>
+      <% end %>
+      
+  <%= erb :add_question %>
+
+    <input type="submit" value="Add Question"><br>
+  </form>
+
+</div>

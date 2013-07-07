@@ -3,8 +3,9 @@ class User < ActiveRecord::Base
   validates :entered_password, :length => { :minimum => 6 }, :allow_blank => true
   validates :email, :uniqueness => true, :format => /.+@.+\..+/ # imperfect, but okay
 
-  has_many :skills, :through => :proficiencies
-  has_many :proficiencies
+  has_many :surveys
+  has_many :completed_surveys
+
 
   attr_accessor :entered_password, :entered_password_confirmation, :old_password
 

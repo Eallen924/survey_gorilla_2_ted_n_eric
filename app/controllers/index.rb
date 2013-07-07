@@ -1,7 +1,7 @@
 get '/' do
   if current_user
-    @users = User.all
-    erb :index
+    @surveys = Survey.all
+    erb :surveys_list
   else
     erb :sign_in
   end
@@ -23,7 +23,7 @@ post '/sessions' do
     # successfully authenticated; set up session and redirect
     session[:user_id] = user.id
     @users = User.all
-    erb :index
+    redirect '/surveys_list'
   else
     # an error occurred, re-render the sign-in form, displaying an error
     @error = "Invalid email or password."

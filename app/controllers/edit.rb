@@ -13,31 +13,12 @@ get '/user/edit/:user_id' do
   end
 end
 
-get '/delete_skill/:skill_id' do
-	skill_to_delete = current_user.proficiencies.find(params[:skill_id])
-	skill_to_delete.destroy if skill_to_delete
-	redirect "/user/edit/#{current_user.id}"
-end
-
-post '/add_skill' do
-	current_user.proficiencies.create(params[:skill])
-	redirect "/user/edit/#{current_user.id}"
-end
-
-get '/add_skill' do
-	@addable_skills = Skill.addable_by(current_user)
-	erb :add_skill
-end
 
 post '/update/:user_id' do
 
 	current_user.update_attributes(params[:user])
-	params[:proficiencies].each do |id, p_params|
-		proficiency_to_update = current_user.proficiencies.find(id)
-		if proficiency_to_update
-			proficiency_to_update.update_attributes(p_params)
-		end
-	end
 
 	redirect "/user/edit/#{current_user.id}"
 end
+
+
