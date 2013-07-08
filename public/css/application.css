@@ -1,21 +1,105 @@
-.container {
-  margin: 30px auto;
-  width: 800px;
-  padding: 20px 20px 20px 20px;
-  border: 1px dotted black;
-  background-color: #D8D8D8;
-  border-radius: 10px;
+
+.picture {
+  width: 100%;
+  height: 100%;
+  position: fixed;  
+  background-image: url('/img/otter.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: -9999;
+  /*-webkit-filter: blur(3px);*/
+  overflow: scroll;
 }
 
+.container {
+  position: relative;
+  margin: 30px auto;
+  width: 80% ;
+  padding: 20px 20px 20px 20px;
+  border: 1px solid black;
+  background-color: rgba(216,216,216,.5);
+  border-radius: 10px;
+  z-index: 9;
+  
+}
+
+
+
+.sign_in_container {
+  text-align: center;
+  margin: 30px auto;
+  margin-top: 300px ;
+  width: 25%;
+  height: 25%
+  padding: 20px 20px 20px 20px;
+  border: 1px solid black;
+  background-color: rgba(216,216,216,.5);
+  border-radius: 10px;
+}
+.sign_in_container input {
+  margin-top: 10px;
+
+} 
+
+
+.submit_button {
+   margin-top: 25px;
+   border-top: 1px solid #96d1f8;
+   background: #d8d8d8;
+   background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#d8d8d8));
+   background: -webkit-linear-gradient(top, #ffffff, #d8d8d8);
+   background: -moz-linear-gradient(top, #ffffff, #d8d8d8);
+   background: -ms-linear-gradient(top, #ffffff, #d8d8d8);
+   background: -o-linear-gradient(top, #ffffff, #d8d8d8);
+   padding: 5.5px 11px;
+   -webkit-border-radius: 7px;
+   -moz-border-radius: 7px;
+   border-radius: 7px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #000000;
+   font-size: 13px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.submit_button:hover {
+   border-top-color: #555555;
+   background: #555555;
+   color: #ccc;
+   }
+.submit_button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+
+.create_survey {
+  text-align: center;
+  margin: 0 auto;
+}
 .container h1 {
   font-size: 17pt;
 }
-
+form.take_survey > input.submit_button{
+  text-align: center;
+}
+ol > li{
+  list-style-type: armenian;
+  margin-top: 8px;
+}
+.radio {
+  margin-right: 10px;
+  margin-top: 5px;
+}
 nav {
+
+  margin-top: 25px;
+  margin-bottom: 25px;
   background-color: #555;
   width: 100%;
   height: 50px;
-  font-weight: bold;
 }
 
 nav .brand, nav .brand a {
@@ -78,22 +162,16 @@ form {
 }
 
 form label {
-  font-weight: bold;
+ 
   margin-right: 20px;
   text-align: left
 }
 
-input {
-  width: 200px;
-  margin-bottom: 10px;
+form li {
+  font-weight: bold;
+  margin-top: 10px;
 }
 
-td {
-  width: 200px;
-  margin-right: 15px;
-  text-align: left;
-  vertical-align: top;
-}
 
 td select {
   width: 193px;
@@ -107,10 +185,7 @@ form.quirks {
   display: inline-block;
 }
 
-.submit {
-  text-align: center;
-  border-radius: 8px;
-}
+
 
 .label {
   margin: 0;
@@ -122,4 +197,20 @@ form.quirks {
 
 #errors {
   color:red;
+}
+
+.bar {
+    background-color: green;
+    position: relative;
+    height: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px; 
+}
+
+table {
+  width: 90%;
+}
+table, th, td
+{
+border: 1px solid black;
 }

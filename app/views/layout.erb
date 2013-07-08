@@ -11,17 +11,19 @@
   <title></title>
 </head>
 <body>
-
+<div class="picture">
   <nav>
 
     <div class="brand"><a href="/">Eric \ Ted Survey Monkey</a></div>
     <ul>
       <% if current_user %>
+
+        <li><a id="user_surveys" href="/user/surveys/<%= current_user.id %>">My Surveys</a></li>
         <li><a id="edit" href="/user/edit/<%= current_user.id %>">Edit</a></li>
         <li><a id="sign-out" href="/sessions/<%= current_user.id %>">Sign Out</a></li>
 
       <% else %>
-        <li><a href="/sessions/new">Sign In</a></li>
+       <!--  <li><a href="/sessions/new">Sign In</a></li> -->
         <li><a href="/users/new">Sign Up</a></li>
       <% end %>
     </ul>
@@ -29,5 +31,6 @@
   </nav>
 
   <%= yield %>
+  </div>
 </body>
 </html>

@@ -1,18 +1,33 @@
+get '/user/surveys/:user_id' do 
+  p params
+  @surveys = User.find(params[:user_id]).surveys
+  p @surveys
+  erb :user_surveys
+end
+
+get '/survey/stats/:survey_id' do 
+  @survey = Survey.find(params[:survey_id])
+  Survey.find(6).completed_surveys #completed surveys for particular survey ID
+  erb :stats
+end
+
 get '/surveys_list' do 
-  @surveys = Survey.all
+  @users = User.all
   erb :surveys_list
 end
 
 get'/surveys/new' do
+  # @choice = 0
+  # @question = 0
   @survey = Survey.new
   erb :survey_new
 end
 
-get '/add_question' do
-  erb :add_question
+post '/add_question' do
+  erb :add_question, :layout => false
 end
 
-get'/survey/:survey_id' do 
+get'/survey/:survey_id' do cra
   @survey = Survey.find(params[:survey_id])
   erb :take_survey
 end
@@ -31,6 +46,7 @@ post '/responses/:survey_id' do
 end
 
 post '/survey/new' do
+  p params
   @survey = Survey.create(user_id: current_user.id, title: params[:survey][:title])
   question = Question.create(:content => params[:question][:content])
   @survey.questions << question
@@ -41,6 +57,9 @@ post '/survey/new' do
 end
 
 post '/survey/:survey_id/add_questions' do
+  if request.xhr?
+    erb :add_question, :layout => false
+  end
   @survey = Survey.find(params[:survey_id])
    question = Question.create(:content => params[:question][:content])
   @survey.questions << question

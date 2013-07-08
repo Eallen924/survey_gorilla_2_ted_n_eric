@@ -1,18 +1,29 @@
 <div class="container">
+  <h1>All Surveys</h1>
   <div class="surveys">
     <% if @errors %>
     <div id="errors">
       <% @errors.each do |error| %>
       <p><%= error %></p>
+      <% end %>
     </div>
-
-    <% @surveys.each do |survey| %>
-    <div class="name">
-     <a href="/survey/<%=survey.id%>"><%= survey.title %></a> 
+    <% end %>
+<% @users.each do |user| %>
+<% if user.surveys.length > 0 %>
+  <h3> <%= user.name %></h3>
+  <ul>
+    
+    <% user.surveys.each do |survey| %>
+  
+     <li><a href="/survey/<%=survey.id%>"><%= survey.title %></a></li>
      <% end %>
-   </div>
-   <a href="/surveys/new">Create Survey</a>
+  </ul>
+     <% end %>
+<% end %>
  </div>
+   <form class="create_survey" action="/surveys/new" method="get">
+    <input class="submit_button" type="submit" value="Create Survey">
+  </form>
 </div>
 
 

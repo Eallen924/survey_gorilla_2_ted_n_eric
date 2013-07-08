@@ -1,6 +1,12 @@
+
+
+get '/stat_test' do
+  erb :stats
+end
+
 get '/' do
   if current_user
-    @surveys = Survey.all
+    @users = User.all
     erb :surveys_list
   else
     erb :sign_in

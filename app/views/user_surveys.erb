@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="surveys">
+    <% if @errors %>
+    <div id="errors">
+      <% @errors.each do |error| %>
+      <p><%= error %></p>
+      <% end %>
+    </div>
+    <% end %>
+
+    <% @surveys.each do |survey| %>
+    <div class="name">
+     <a href="/survey/stats/<%=survey.id%>"><%= survey.title %></a> 
+     <% end %>
+   </div>
+ </div>
+</div>
+   <a href="/surveys/new">Create Survey</a>

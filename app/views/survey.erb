@@ -1,14 +1,14 @@
 <div class="container">
   <h1><%= @survey.title %></h1>
   <div class="questions">
-    <ul>
+    <ol>
       <% @survey.questions.each do |question|%>
       <li><%= question.content %></li>
       <ul><% question.choices.each do |choice|  %>
-        <li><%= choice.content %></li>
+        <li><%= choice.content %> <%= choice.answers.count %></li>
         <% end %>
       </ul>
       <% end %>
-    </ul>
+    </ol>
   </div>
 </div>

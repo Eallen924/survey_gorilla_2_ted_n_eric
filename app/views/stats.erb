@@ -1,0 +1,29 @@
+<div class="container">
+  <h1><%= @survey.title %></h1>
+  <div class="questions">
+    <table class="stats_table">
+    <thead>
+      <th>Question</th>
+      <th>Choices</th>
+      <th>Total Count</th>
+      <th>Percentage</th>
+    </thead>
+    <tbody>
+      <% @survey.questions.each do |question|%>
+      <tr>  
+        <% question.choices.each_with_index do |choice,index|  %>
+       <td><%= question.content if index == 0 %></td>
+        <% total_answers = question.answers.count %>
+        <% choice_count = choice.answers.count %>
+        <% percentage = (choice_count / total_answers.to_f) * 100 %>
+        <td><%= choice.content %></td>
+        <td><%= choice.answers.count %></td>
+        <td><div id="bar1" class="bar" style="width: <%=percentage%>%;" ></div><%=percentage%> %</td>
+      </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+    </table>
+  </div>
+</div>
+

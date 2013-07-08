@@ -1,4 +1,4 @@
-<div class="container">
+<div class="sign_in_container">
   <h1>Sign In</h1>
 
   <% if @error %>
@@ -6,12 +6,9 @@
   <% end %>
 
   <form id="sign-in" method="post" action="/sessions">
-    <label class="label" for="email">Email</label>
-    <input type="email" name="email" placeholder="e.g., me@example.com" value="<%= @email %>"><br>
-    <label class="label" for="password">Password</label>
-    <input type="password" name="password" placeholder="6 or more characters">
-    <br>
-    <div class="submit"><input type="submit" value="Sign In"></div>
+    <input type="email" name="email" placeholder="Email" value="<%= @email %>"><br>
+    <input type="password" name="password" placeholder="Password"><br>
+    <input class="submit_button" type="submit" value="Sign In">
   </form>
 
 </div>

@@ -1,5 +1,5 @@
 <div class="container">
-  <form action="/survey/new" method="post">
+  <form class="new_survey" action="/survey/new" method="post">
     <input type="text" name="survey[title]" placeholder="Survey Title" value="<%= @survey.title %>">
   <ul>
       <% @survey.questions.each do |question|%>
@@ -11,8 +11,10 @@
       <% end %>
       
   <%= erb :add_question %>
+    <div id="extra-questions"></div>
+    <!-- <a href="#" id="add-question">Add Question</a> -->
+    <input type="submit" value= "Add a question">
 
-    <input type="submit" value="Add Question"><br>
   </form>
 
 </div>
